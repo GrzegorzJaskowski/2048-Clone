@@ -4,8 +4,6 @@ import Tile from "./Tile.js"
 const gameBoard = document.getElementById("game-board")
 
 var grid = setupBoard()
-grid.randomEmptyCell().tile = new Tile(gameBoard)
-grid.randomEmptyCell().tile = new Tile(gameBoard)
 setupInput()
 
 async function handleInput(e) {
