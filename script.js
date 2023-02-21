@@ -3,19 +3,10 @@ import Tile from "./Tile.js"
 
 const gameBoard = document.getElementById("game-board")
 
-setupBoard()
-
-function setupBoard() {
-  const grid = new Grid(gameBoard, 5)
-  grid.randomEmptyCell().tile = new Tile(gameBoard)
-  grid.randomEmptyCell().tile = new Tile(gameBoard)
-}
-
+var grid = setupBoard()
+grid.randomEmptyCell().tile = new Tile(gameBoard)
+grid.randomEmptyCell().tile = new Tile(gameBoard)
 setupInput()
-
-function setupInput() {
-  window.addEventListener("keydown", handleInput, { once: true })
-}
 
 async function handleInput(e) {
   switch (e.key) {
@@ -65,6 +56,17 @@ async function handleInput(e) {
   }
 
   setupInput()
+}
+
+function setupBoard() {
+  grid = new Grid(gameBoard, 3)
+  grid.randomEmptyCell().tile = new Tile(gameBoard)
+  grid.randomEmptyCell().tile = new Tile(gameBoard)
+  return grid
+}
+
+function setupInput() {
+  window.addEventListener("keydown", handleInput, { once: true })
 }
 
 function moveUp() {
