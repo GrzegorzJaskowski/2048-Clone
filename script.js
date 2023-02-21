@@ -57,7 +57,7 @@ async function handleInput(e) {
 }
 
 function setupBoard() {
-  grid = new Grid(gameBoard, 3)
+  grid = new Grid(gameBoard, 4)
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   return grid
