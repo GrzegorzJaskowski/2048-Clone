@@ -26,8 +26,32 @@ body {
   position: relative;
 }
 
+#settings {
+  position: absolute;
+  right: 3vmin;
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+
+.board-size-button {
+  font-family: Arial;
+  font-size: 3vmin;
+  border-radius: 1vmin;
+  background-color: hsl(200, 50%, 100%);
+  border: none;
+  padding: 1vmin;
+  margin: 0.5vmin;
+  width: 12vmin;
+  height: 6vmin;
+}
+
+.board-size-button:hover {
+  background-color: hsl(0, 0%, 67%);
+}
+
 .cell {
-  background-color: #aaa;
+  background-color: hsl(0, 0%, 67%);
   border-radius: 1vmin;
 }
 

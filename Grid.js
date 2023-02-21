@@ -1,21 +1,30 @@
-const GRID_SIZE = 4
 const CELL_SIZE = 20
 const CELL_GAP = 2
 
 export default class Grid {
   #cells
+  #gridSize
 
-  constructor(gridElement) {
-    gridElement.style.setProperty("--grid-size", GRID_SIZE)
-    gridElement.style.setProperty("--cell-size", `${CELL_SIZE}vmin`)
-    gridElement.style.setProperty("--cell-gap", `${CELL_GAP}vmin`)
-    this.#cells = createCellElements(gridElement).map((cellElement, index) => {
-      return new Cell(
-        cellElement,
-        index % GRID_SIZE,
-        Math.floor(index / GRID_SIZE)
-      )
-    })
+  constructor(gridElement, gridSize = 4) {
+    this.#gridSize = gridSize
+    gridElement.style.setProperty("--grid-size", this.#gridSize)
+    gridElement.style.setProperty(
+      "--cell-size",
+      `${CELL_SIZE - (this.#gridSize - 4) * 5}vmin`
+    )
+    gridElement.style.setProperty(
+      "--cell-gap",
+      `${CELL_GAP - (this.#gridSize - 4)}vmin`
+    )
+    this.#cells = createCellElements(gridElement, gridSize).map(
+      (cellElement, index) => {
+        return new Cell(
+          cellElement,
+          index % this.#gridSize,
+          Math.floor(index / this.#gridSize)
+        )
+      }
+    )
   }
 
   get cells() {
@@ -40,6 +49,10 @@ export default class Grid {
 
   get #emptyCells() {
     return this.#cells.filter((cell) => cell.tile == null)
+  }
+
+  get gridSize() {
+    return this.#gridSize
   }
 
   randomEmptyCell() {
@@ -106,9 +119,9 @@ class Cell {
   }
 }
 
-function createCellElements(gridElement) {
+function createCellElements(gridElement, gridSize) {
   const cells = []
-  for (let i = 0; i < GRID_SIZE * GRID_SIZE; i++) {
+  for (let i = 0; i < gridSize * gridSize; i++) {
     const cell = document.createElement("div")
     cell.classList.add("cell")
     cells.push(cell)
