@@ -19,16 +19,72 @@ body {
   display: grid;
   grid-template-columns: repeat(var(--grid-size), var(--cell-size));
   grid-template-rows: repeat(var(--grid-size), var(--cell-size));
-  background-color: #ccc;
+  background-color: hsl(0, 0%, 80%);
   gap: var(--cell-gap);
   border-radius: 1vmin;
   padding: var(--cell-gap);
   position: relative;
 }
 
-#settings {
+#color-settings {
   position: absolute;
-  right: 3vmin;
+  left: 6vmin;
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+
+.red-color-button {
+  font-family: Arial;
+  font-size: 3vmin;
+  border-radius: 1vmin;
+  background-color: hsl(0, 25%, 73%);
+  border: none;
+  padding: 1vmin;
+  margin: 0.5vmin;
+  width: 12vmin;
+  height: 6vmin;
+}
+
+.red-color-button:hover {
+  background-color: hsl(0, 25%, 60%);
+}
+
+.green-color-button {
+  font-family: Arial;
+  font-size: 3vmin;
+  border-radius: 1vmin;
+  background-color: hsl(125, 25%, 73%);
+  border: none;
+  padding: 1vmin;
+  margin: 0.5vmin;
+  width: 12vmin;
+  height: 6vmin;
+}
+
+.green-color-button:hover {
+  background-color: hsl(125, 25%, 60%);
+}
+
+.blue-color-button {
+  font-family: Arial;
+  font-size: 3vmin;
+  border-radius: 1vmin;
+  background-color: hsl(200, 25%, 73%);
+  border: none;
+  padding: 1vmin;
+  margin: 0.5vmin;
+  width: 12vmin;
+  height: 6vmin;
+}
+
+.blue-color-button:hover {
+  background-color: hsl(200, 25%, 60%);
+}
+
+#size-settings {
+  position: absolute;
+  right: 6vmin;
   display: flex;
   flex-direction: column;
   float: right;
@@ -38,7 +94,7 @@ body {
   font-family: Arial;
   font-size: 3vmin;
   border-radius: 1vmin;
-  background-color: hsl(200, 50%, 100%);
+  background-color: hsl(0, 0%, 80%);
   border: none;
   padding: 1vmin;
   margin: 0.5vmin;

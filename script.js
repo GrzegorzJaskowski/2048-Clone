@@ -10,8 +10,20 @@ function changeSize() {
   $("#game-board").html("")
   grid = setupBoard(this.id)
 }
-
 $(document).on("click", ".board-size-button", changeSize)
+
+function redColor() {
+  console.log("red")
+}
+function greenColor() {
+  console.log("green")
+}
+function blueColor() {
+  console.log("blue")
+}
+$(document).on("click", ".red-color-button", redColor)
+$(document).on("click", ".green-color-button", greenColor)
+$(document).on("click", ".blue-color-button", blueColor)
 
 async function handleInput(e) {
   switch (e.key) {
