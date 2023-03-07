@@ -6,6 +6,13 @@ const gameBoard = document.getElementById("game-board")
 var grid = setupBoard()
 setupInput()
 
+function changeSize() {
+  $("#game-board").html("")
+  grid = setupBoard(this.id)
+}
+
+$(document).on("click", ".board-size-button", changeSize)
+
 async function handleInput(e) {
   switch (e.key) {
     case "ArrowUp":
@@ -56,8 +63,8 @@ async function handleInput(e) {
   setupInput()
 }
 
-function setupBoard() {
-  grid = new Grid(gameBoard, 4)
+function setupBoard(size = 4) {
+  grid = new Grid(gameBoard, size)
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   grid.randomEmptyCell().tile = new Tile(gameBoard)
   return grid
